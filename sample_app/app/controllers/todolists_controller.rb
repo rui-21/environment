@@ -12,7 +12,12 @@ class TodolistsController < ApplicationController
     # ２. データをデータベースに保存するためのsaveメソッド実行
     list.save
     # ３. トップ画面へリダイレクト
-    redirect_to'/top'
+    redirect_to "/top"
+  end
+  
+  def index 
+    @lists = List.all
+    
   end
   
   private
