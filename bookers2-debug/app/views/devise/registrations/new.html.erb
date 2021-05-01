@@ -6,7 +6,7 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field">
           <%= f.label :name %><br />
-          <%= f.name_field :name, autofocus: true, class: "name" %>
+          <%= f.text_field :name, autofocus: true, class: "name" %>
         </div>
         <div class="field">
           <%= f.label :email %><br />
@@ -31,3 +31,5 @@
     </div>
   </div>
 </div>
+<!--寝ないといかんから明日の自分ここから頼む-->
+<!--えーっとあれね、サインアップのとこで本が既に存在するみたいなエラーになる原因突き止めるとこからね-->
