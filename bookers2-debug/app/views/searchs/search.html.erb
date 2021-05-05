@@ -1,2 +1,9 @@
-<h1>Searchs#search</h1>
-<p>Find me in app/views/searchs/search.html.erb</p>
+<% if @books.present? %>
+  <h2>Books search for "<%= @search %>"</h2>
+  <%= render 'books/index', books: @books %>
+<% elsif @users.present? %>
+  <h2>Users search for "<%= @search %>"</h2>
+  <%= render 'users/index', users: @users %>
+<% else %>
+  <h2>見つかりませんでした。</h2>
+<% end %>
