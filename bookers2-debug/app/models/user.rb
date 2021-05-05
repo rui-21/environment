@@ -31,13 +31,4 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-  # フォロー自体しているかのチェックメソッド
-  def follow_exists?(user)
-    follower.where(follower_id: user.id).exists?
-  end
-  # フォロワーが存在するかのチェックメソッド
-  def follower_exists?(user)
-    followed.where(followed_id: user.id).exists?
-  end
-
 end

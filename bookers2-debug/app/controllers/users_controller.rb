@@ -25,11 +25,13 @@ class UsersController < ApplicationController
   end
 
   def follow_index
-    @user = User.find(params[:user_id])
+    user = User.find(params[:user_id])
+    @users = user.following_user
   end
 
   def follower_index
-    @user = User.find(params[:user_id])
+    user = User.find(params[:user_id])
+    @users = user.follower_user
   end
 
   private

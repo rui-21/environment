@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searchs/search'
   devise_for :users
   resources :users,only: [:show,:index,:edit,:update] do
     get 'follow_users' => 'users#follow_index', as: 'follow_users'
