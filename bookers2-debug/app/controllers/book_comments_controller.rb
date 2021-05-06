@@ -4,16 +4,14 @@ class BookCommentsController < ApplicationController
     @book_comment = current_user.book_comments.new(book_comment_params)
     @book_comment.book_id = @book.id
     if @book_comment.save
-      flash[:notice] = "You have created book comment successfully."
-      redirect_back(fallback_location: root_path)
     else
-      @new_book = Book.new
-      render template: "books/show"
+      render :errors
     end
   end
   def destroy
-    BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
-    redirect_back(fallback_location: root_path)
+    @book = Book.find(params[:book_id])
+    @book_comment = BookComment.find_by(id: params[:id], book_id: params[:book_id])
+    @book_comment.destroy
   end
 
   private

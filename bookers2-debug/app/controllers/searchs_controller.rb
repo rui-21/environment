@@ -1,4 +1,6 @@
 class SearchsController < ApplicationController
+  before_action :authenticate_user!
+  
   def search
     if params[:search].present?
       @search = params[:search]
