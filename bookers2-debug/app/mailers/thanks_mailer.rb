@@ -5,9 +5,10 @@ class ThanksMailer < ApplicationMailer
   #
   #   en.thanks_mailer.welcome_mail.subject
   #
-  def welcome_mail
-    @greeting = "Hi"
+  def welcome_mail(user)
+    @user = user
+    @greeting = "こんにちは"
 
-    mail to: "reisu0120@gmail.com"
+    mail to: @user.email, subject: '登録完了しました。'
   end
 end
