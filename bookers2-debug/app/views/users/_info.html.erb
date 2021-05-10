@@ -30,6 +30,7 @@
     <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
   </div>
 <% else %>
+  <%= link_to 'チャットを始める', user_chats_path(user.id) %>
   <% if current_user.following?(user) %>
     <%= link_to  unfollow_path(user.id), method: :delete do %>
       <button class='btn btn-info'>フォロー外す</button>

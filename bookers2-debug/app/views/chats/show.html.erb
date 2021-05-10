@@ -1,0 +1,25 @@
+<div class="container">
+   <div class="row">
+      <div class="col-lg-6">
+         <h2 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %>さんとのチャット</h2>
+         <table class="table">
+            <tbody>
+               <% @user_chats.each do |chat| %>
+                  <tr><td style="text-align: left;"><%= chat.message %></td></tr>
+               <% end %>
+            </tbody>
+         </table>
+         <%= form_with model: @chat do |f| %>
+            <%= f.text_field :message %>
+            <%= f.hidden_field :room_id %>
+         <% end %>
+         <table class="table">
+            <tbody id="current_user_chat">
+               <% @current_user_chats.each do |chat| %>
+                  <tr><td style="text-align: right;"><%= chat.message %></td></tr>
+               <% end %>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
